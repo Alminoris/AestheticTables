@@ -1,0 +1,135 @@
+package net.alminoris.aesthetictables.block.custom;
+
+import net.alminoris.aesthetictables.util.helper.VoxelShapeHelper;
+import net.minecraft.block.*;
+import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.EnumProperty;
+import net.minecraft.util.StringIdentifiable;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class GardenTable extends YAxisRotatedBlock
+{
+    protected static final VoxelShape TABLE_TOP = Block.createCuboidShape(
+            0.0D, 14.0D, 0.0D,
+            16.0D, 16.0D, 16.0D
+    );
+
+    protected static final VoxelShape LEG_FRONT = Block.createCuboidShape(
+            1.0D, 0.0D, 0.0D,
+            3.0D, 14.0D, 16.0D
+    );
+
+    protected static final VoxelShape LEG_BACK = Block.createCuboidShape(
+            13.0D, 0.0D, 0.0D,
+            15.0D, 14.0D, 16.0D
+    );
+
+
+    public enum Variant implements StringIdentifiable
+    {
+        NORMAL("normal"),
+        CENTER("center"),
+        LEFT("left"),
+        RIGHT("right");
+
+        private final String name;
+
+        Variant(String name) { this.name = name; }
+
+        @Override
+        public String asString() { return this.name; }
+    }
+
+    public static final EnumProperty<Variant> VARIANT = EnumProperty.of("variant", GardenTable.Variant.class);
+
+    public GardenTable(AbstractBlock.Settings settings)
+    {
+        super(settings.nonOpaque());
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(VARIANT, Variant.NORMAL));
+    }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder)
+    {
+        builder.add(FACING, VARIANT);
+    }
+
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
+    {
+        return getRotatedShape(state);
+    }
+
+    private VoxelShape getRotatedShape(BlockState state)
+    {
+        Direction direction = state.get(FACING);
+
+        List<Box> boxes = new ArrayList<>();
+        boxes.add(TABLE_TOP.getBoundingBox());
+        boxes.add(LEG_FRONT.getBoundingBox());
+        boxes.add(LEG_BACK.getBoundingBox());
+
+        return VoxelShapeHelper.rotateShape(boxes, direction);
+    }
+
+    @Override
+    protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos)
+    {
+        return updateGardenTableVariant(state, world, pos);
+    }
+
+    @Override
+    public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify)
+    {
+        super.onBlockAdded(state, world, pos, oldState, notify);
+        updateSurroundingGardenTablees(world, pos);
+    }
+
+    private void updateSurroundingGardenTablees(World world, BlockPos pos)
+    {
+        for (Direction direction : Direction.Type.HORIZONTAL)
+        {
+            BlockPos neighborPos = pos.offset(direction);
+            BlockState neighborState = world.getBlockState(neighborPos);
+
+            if (neighborState.getBlock() instanceof GardenTable)
+                world.setBlockState(neighborPos, updateGardenTableVariant(neighborState, world, neighborPos));
+        }
+    }
+
+    private BlockState updateGardenTableVariant(BlockState state, WorldAccess world, BlockPos pos)
+    {
+        Direction facing = state.get(FACING);
+
+        BlockPos leftPos = pos.offset(facing.rotateYCounterclockwise());
+        BlockPos rightPos = pos.offset(facing.rotateYClockwise());
+
+        boolean leftConnected = isGardenTable(world, leftPos, facing);
+        boolean rightConnected = isGardenTable(world, rightPos, facing);
+
+        if (leftConnected && rightConnected)
+            return state.with(VARIANT, Variant.CENTER);
+        else if (leftConnected)
+            return state.with(VARIANT, Variant.RIGHT);
+        else if (rightConnected)
+            return state.with(VARIANT, Variant.LEFT);
+        else
+            return state.with(VARIANT, Variant.NORMAL);
+    }
+
+    private boolean isGardenTable(WorldAccess world, BlockPos pos, Direction facing)
+    {
+        BlockState state = world.getBlockState(pos);
+        return state.getBlock() instanceof GardenTable && state.get(FACING) == facing;
+    }
+}
