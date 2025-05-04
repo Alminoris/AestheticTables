@@ -73,17 +73,34 @@ public class GardenTable extends YAxisRotatedBlock
     private VoxelShape getRotatedShape(BlockState state)
     {
         Direction direction = state.get(FACING);
+        Variant variant = state.get(VARIANT);
 
         List<Box> boxes = new ArrayList<>();
-        boxes.add(TABLE_TOP.getBoundingBox());
-        boxes.add(LEG_FRONT.getBoundingBox());
-        boxes.add(LEG_BACK.getBoundingBox());
+        switch (variant)
+        {
+            case NORMAL:
+                boxes.add(TABLE_TOP.getBoundingBox());
+                boxes.add(LEG_FRONT.getBoundingBox());
+                boxes.add(LEG_BACK.getBoundingBox());
+                break;
+            case CENTER:
+                boxes.add(TABLE_TOP.getBoundingBox());
+                break;
+            case LEFT:
+                boxes.add(TABLE_TOP.getBoundingBox());
+                boxes.add(LEG_FRONT.getBoundingBox());
+                break;
+            case RIGHT:
+                boxes.add(TABLE_TOP.getBoundingBox());
+                boxes.add(LEG_BACK.getBoundingBox());
+                break;
+        }
 
         return VoxelShapeHelper.rotateShape(boxes, direction);
     }
 
     @Override
-    protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos)
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos)
     {
         return updateGardenTableVariant(state, world, pos);
     }

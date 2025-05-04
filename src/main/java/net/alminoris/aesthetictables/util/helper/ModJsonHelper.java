@@ -37,7 +37,7 @@ public class ModJsonHelper
     {
         String projectPath = System.getProperty("user.dir");
 
-        String filePath = projectPath.replace("build\\datagen", "src\\main\\resources") + "/data/"+ AestheticTables.MOD_ID+"/recipe/";
+        String filePath = projectPath.replace("build\\datagen", "src\\main\\resources") + "/data/"+ AestheticTables.MOD_ID+"/recipes/";
 
         File directory = new File(filePath);
         if (!directory.exists())
