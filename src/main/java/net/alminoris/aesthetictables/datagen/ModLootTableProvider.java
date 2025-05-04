@@ -20,7 +20,21 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
 
         }
 
-        for(String name : BlockSetsHelper.getWoods())
+        for(String name : BlockSetsHelper.WOODS)
+        {
+            addDrop(ModBlocks.TABLES.get(name));
+            addDrop(ModBlocks.COFFEE_TABLES.get(name));
+            addDrop(ModBlocks.GARDEN_TABLES.get(name));
+        }
+
+        for(String name : BlockSetsHelper.EXTRA_WOODS_AN)
+        {
+            addDrop(ModBlocks.TABLES.get(name));
+            addDrop(ModBlocks.COFFEE_TABLES.get(name));
+            addDrop(ModBlocks.GARDEN_TABLES.get(name));
+        }
+
+        for(String name : BlockSetsHelper.EXTRA_WOODS_WF)
         {
             addDrop(ModBlocks.TABLES.get(name));
             addDrop(ModBlocks.COFFEE_TABLES.get(name));
