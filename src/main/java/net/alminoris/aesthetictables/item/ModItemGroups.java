@@ -15,9 +15,7 @@ import net.minecraft.util.Identifier;
 
 public class ModItemGroups
 {
-    public static final ItemGroup AEDGS_TAB = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(AestheticTables.MOD_ID, "atblstab"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.atblstab"))
+    public static final ItemGroup AEDGS_TAB = FabricItemGroup.builder(new Identifier(AestheticTables.MOD_ID, "atblstab")).displayName(Text.translatable("itemgroup.atblstab"))
                     .icon(() -> new ItemStack(Blocks.RED_CARPET)).entries((displayContext, entries) ->
                     {
                         for(String name : BlockSetsHelper.STONES)
@@ -94,7 +92,7 @@ public class ModItemGroups
                                 entries.add(ModBlocks.GARDEN_TABLES.get(name));
                             }
                         }
-                    }).build());
+                    }).build();
 
     public static void registerItemGroups()
     {
