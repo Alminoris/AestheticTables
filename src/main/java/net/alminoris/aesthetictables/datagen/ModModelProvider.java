@@ -132,7 +132,7 @@ public class ModModelProvider extends FabricModelProvider
                 "top");
 
         ModJsonHelper.createBlockstate(ModJsonTemplates.TABLE_BLOCKSTATE_TEMPLATE, Registry.BLOCK.getId(table).getPath());
-        blockStateModelGenerator.registerParentedItemModel(table, Identifier.of(AestheticTables.MOD_ID, "block/"+Registry.BLOCK.getId(table).getPath()));
+        blockStateModelGenerator.registerParentedItemModel(table, new Identifier(AestheticTables.MOD_ID, "block/"+Registry.BLOCK.getId(table).getPath()));
     }
 
     public final void registerCoffeeTable(BlockStateModelGenerator blockStateModelGenerator, String normal,
@@ -173,7 +173,7 @@ public class ModModelProvider extends FabricModelProvider
                 "top");
 
         ModJsonHelper.createBlockstate(ModJsonTemplates.TABLE_BLOCKSTATE_TEMPLATE, Registry.BLOCK.getId(table).getPath());
-        blockStateModelGenerator.registerParentedItemModel(table, Identifier.of(AestheticTables.MOD_ID, "block/"+Registry.BLOCK.getId(table).getPath()));
+        blockStateModelGenerator.registerParentedItemModel(table, new Identifier(AestheticTables.MOD_ID, "block/"+Registry.BLOCK.getId(table).getPath()));
     }
 
     public final void registerGardenTable(BlockStateModelGenerator blockStateModelGenerator, String normal,
@@ -203,7 +203,7 @@ public class ModModelProvider extends FabricModelProvider
                 "right");
 
         ModJsonHelper.createBlockstate(ModJsonTemplates.SIMPLE_TABLE_BLOCKSTATE_TEMPLATE, Registry.BLOCK.getId(table).getPath());
-        blockStateModelGenerator.registerParentedItemModel(table, Identifier.of(AestheticTables.MOD_ID, "block/"+Registry.BLOCK.getId(table).getPath()));
+        blockStateModelGenerator.registerParentedItemModel(table, new Identifier(AestheticTables.MOD_ID, "block/"+Registry.BLOCK.getId(table).getPath()));
     }
 
     @Override
