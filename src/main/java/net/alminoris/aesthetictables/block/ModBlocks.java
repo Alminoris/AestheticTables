@@ -4,15 +4,15 @@ import net.alminoris.aesthetictables.AestheticTables;
 import net.alminoris.aesthetictables.block.custom.CoffeeTable;
 import net.alminoris.aesthetictables.block.custom.GardenTable;
 import net.alminoris.aesthetictables.block.custom.Table;
+import net.alminoris.aesthetictables.item.ModItemGroups;
 import net.alminoris.aesthetictables.util.helper.BlockSetsHelper;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
@@ -46,13 +46,13 @@ public class ModBlocks
     public static Block registerBlock(String name, Block block)
     {
         registerBlockItem(name, block);
-        return Registry.register(Registries.BLOCK, Identifier.of(AestheticTables.MOD_ID, name), block);
+        return Registry.register(Registry.BLOCK, Identifier.of(AestheticTables.MOD_ID, name), block);
     }
 
     private static void registerBlockItem(String name, Block block)
     {
-        Registry.register(Registries.ITEM, Identifier.of(AestheticTables.MOD_ID, name),
-                new BlockItem(block, new Item.Settings()));
+        Registry.register(Registry.ITEM, Identifier.of(AestheticTables.MOD_ID, name),
+                new BlockItem(block, new FabricItemSettings().group(ModItemGroups.ATBLS_TAB)));
     }
 
     public static void registerBlocks()

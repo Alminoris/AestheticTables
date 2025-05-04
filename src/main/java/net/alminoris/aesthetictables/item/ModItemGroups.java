@@ -2,100 +2,38 @@ package net.alminoris.aesthetictables.item;
 
 import net.alminoris.aesthetictables.AestheticTables;
 import net.alminoris.aesthetictables.block.ModBlocks;
-import net.alminoris.aesthetictables.util.helper.BlockSetsHelper;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ModItemGroups
 {
-    public static final ItemGroup AEDGS_TAB = FabricItemGroup.builder(new Identifier(AestheticTables.MOD_ID, "atblstab")).displayName(Text.translatable("itemgroup.atblstab"))
-                    .icon(() -> new ItemStack(Blocks.RED_CARPET)).entries((displayContext, entries) ->
-                    {
-                        for(String name : BlockSetsHelper.STONES)
-                        {
+    public static List<String> EXTRA_WOODS_WF = new ArrayList<>();
 
-                        }
-                        if (FabricLoader.getInstance().isModLoaded("wildfields"))
-                        {
-                            for(String name : BlockSetsHelper.EXTRA_STONES_WF)
-                            {
+    public static List<String> EXTRA_WOODS_AN = new ArrayList<>();
 
-                            }
-                        }
+    public static List<String> EXTRA_STONES_WF = new ArrayList<>();
 
-                        for(String name : BlockSetsHelper.WOODS)
-                        {
-                            entries.add(ModBlocks.TABLES.get(name));
-                        }
-
-                        if (FabricLoader.getInstance().isModLoaded("arborealnature"))
-                        {
-                            for(String name : BlockSetsHelper.EXTRA_WOODS_AN)
-                            {
-                                entries.add(ModBlocks.TABLES.get(name));
-                            }
-                        }
-
-                        if (FabricLoader.getInstance().isModLoaded("wildfields"))
-                        {
-                            for(String name : BlockSetsHelper.EXTRA_WOODS_WF)
-                            {
-                                entries.add(ModBlocks.TABLES.get(name));
-                            }
-                        }
-
-                        for(String name : BlockSetsHelper.WOODS)
-                        {
-                            entries.add(ModBlocks.COFFEE_TABLES.get(name));
-                        }
-
-                        if (FabricLoader.getInstance().isModLoaded("arborealnature"))
-                        {
-                            for(String name : BlockSetsHelper.EXTRA_WOODS_AN)
-                            {
-                                entries.add(ModBlocks.COFFEE_TABLES.get(name));
-                            }
-                        }
-
-                        if (FabricLoader.getInstance().isModLoaded("wildfields"))
-                        {
-                            for(String name : BlockSetsHelper.EXTRA_WOODS_WF)
-                            {
-                                entries.add(ModBlocks.COFFEE_TABLES.get(name));
-                            }
-                        }
-
-                        for(String name : BlockSetsHelper.WOODS)
-                        {
-                            entries.add(ModBlocks.GARDEN_TABLES.get(name));
-                        }
-
-                        if (FabricLoader.getInstance().isModLoaded("arborealnature"))
-                        {
-                            for(String name : BlockSetsHelper.EXTRA_WOODS_AN)
-                            {
-                                entries.add(ModBlocks.GARDEN_TABLES.get(name));
-                            }
-                        }
-
-                        if (FabricLoader.getInstance().isModLoaded("wildfields"))
-                        {
-                            for(String name : BlockSetsHelper.EXTRA_WOODS_WF)
-                            {
-                                entries.add(ModBlocks.GARDEN_TABLES.get(name));
-                            }
-                        }
-                    }).build();
+    public static final ItemGroup ATBLS_TAB = FabricItemGroupBuilder.build(new Identifier(AestheticTables.MOD_ID, "atblstab"),
+            () -> new ItemStack(ModBlocks.GARDEN_TABLES.get("oak")));
 
     public static void registerItemGroups()
     {
+        if (FabricLoader.getInstance().isModLoaded("arborealnature"))
+        {
+            EXTRA_WOODS_AN = List.of("hazelnut", "hornbeam", "hawthorn", "quince", "plum", "mango", "fig", "viburnum",
+                    "white_mulberry", "wild_cherry", "bauhinia", "pine", "fir", "cedar", "araucaria", "juniper");
+        }
+        if (FabricLoader.getInstance().isModLoaded("wildfields"))
+        {
+            EXTRA_WOODS_WF = List.of("olive", "tamarisk");
 
+            EXTRA_STONES_WF = List.of("dolomite_block", "saltmarsh_block");
+        }
     }
 }

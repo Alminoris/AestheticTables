@@ -79,14 +79,15 @@ public class CoffeeTable extends Block implements Waterloggable
     {
         boolean waterlogged = ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER;
         return getUpdatedLegs(this.getDefaultState()
-                .with(FACING, ctx.getHorizontalPlayerFacing())
+                .with(FACING, ctx.getPlayer().getHorizontalFacing())
                 .with(WATERLOGGED, waterlogged), ctx.getWorld(), ctx.getBlockPos());
     }
 
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction dir, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        if (state.get(WATERLOGGED)) {
-            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+        if (state.get(WATERLOGGED))
+        {
+            world.createAndScheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
         return getUpdatedLegs(state, world, pos);
     }
@@ -96,7 +97,8 @@ public class CoffeeTable extends Block implements Waterloggable
         return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
     }
 
-    private BlockState getUpdatedLegs(BlockState state, WorldAccess world, BlockPos pos) {
+    private BlockState getUpdatedLegs(BlockState state, WorldAccess world, BlockPos pos)
+    {
         boolean north = connectsTo(world, pos.north());
         boolean east = connectsTo(world, pos.east());
         boolean south = connectsTo(world, pos.south());
@@ -122,7 +124,8 @@ public class CoffeeTable extends Block implements Waterloggable
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext ctx) {
+    public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext ctx)
+    {
         VoxelShape shape = TOP;
         if (state.get(LEG1)) shape = VoxelShapes.union(shape, LEG_1);
         if (state.get(LEG2)) shape = VoxelShapes.union(shape, LEG_2);
