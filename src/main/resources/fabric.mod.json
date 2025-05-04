@@ -11,7 +11,7 @@
 		"homepage": "",
 		"sources": "https://github.com/Alminoris/AestheticTables"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/aesthetictables/icon.png",
 	"environment": "*",
 	"entrypoints": {
