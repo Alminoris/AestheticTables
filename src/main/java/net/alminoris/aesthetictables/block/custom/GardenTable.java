@@ -2,9 +2,13 @@ package net.alminoris.aesthetictables.block.custom;
 
 import net.alminoris.aesthetictables.util.helper.VoxelShapeHelper;
 import net.minecraft.block.*;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.EnumProperty;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
@@ -34,6 +38,7 @@ public class GardenTable extends YAxisRotatedBlock
             15.0D, 14.0D, 16.0D
     );
 
+    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
     public enum Variant implements StringIdentifiable
     {
@@ -55,13 +60,13 @@ public class GardenTable extends YAxisRotatedBlock
     public GardenTable(AbstractBlock.Settings settings)
     {
         super(settings.nonOpaque());
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(VARIANT, Variant.NORMAL));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(VARIANT, Variant.NORMAL).with(WATERLOGGED, false));
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder)
     {
-        builder.add(FACING, VARIANT);
+        builder.add(FACING, VARIANT, WATERLOGGED);
     }
 
     @Override
@@ -100,9 +105,26 @@ public class GardenTable extends YAxisRotatedBlock
     }
 
     @Override
+    public BlockState getPlacementState(ItemPlacementContext ctx)
+    {
+        boolean waterlogged = ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER;
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, waterlogged);
+    }
+
+    @Override
     protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos)
     {
+        if (state.get(WATERLOGGED))
+        {
+            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+        }
         return updateGardenTableVariant(state, world, pos);
+    }
+
+    @Override
+    public FluidState getFluidState(BlockState state)
+    {
+        return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
     }
 
     @Override
