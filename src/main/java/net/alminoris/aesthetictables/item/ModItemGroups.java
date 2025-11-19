@@ -35,47 +35,7 @@ public class ModItemGroups
                         for(String name : BlockSetsHelper.WOODS)
                         {
                             entries.add(ModBlocks.TABLES.get(name));
-                        }
-
-                        if (FabricLoader.getInstance().isModLoaded("arborealnature"))
-                        {
-                            for(String name : BlockSetsHelper.EXTRA_WOODS_AN)
-                            {
-                                entries.add(ModBlocks.TABLES.get(name));
-                            }
-                        }
-
-                        if (FabricLoader.getInstance().isModLoaded("wildfields"))
-                        {
-                            for(String name : BlockSetsHelper.EXTRA_WOODS_WF)
-                            {
-                                entries.add(ModBlocks.TABLES.get(name));
-                            }
-                        }
-
-                        for(String name : BlockSetsHelper.WOODS)
-                        {
                             entries.add(ModBlocks.COFFEE_TABLES.get(name));
-                        }
-
-                        if (FabricLoader.getInstance().isModLoaded("arborealnature"))
-                        {
-                            for(String name : BlockSetsHelper.EXTRA_WOODS_AN)
-                            {
-                                entries.add(ModBlocks.COFFEE_TABLES.get(name));
-                            }
-                        }
-
-                        if (FabricLoader.getInstance().isModLoaded("wildfields"))
-                        {
-                            for(String name : BlockSetsHelper.EXTRA_WOODS_WF)
-                            {
-                                entries.add(ModBlocks.COFFEE_TABLES.get(name));
-                            }
-                        }
-
-                        for(String name : BlockSetsHelper.WOODS)
-                        {
                             entries.add(ModBlocks.GARDEN_TABLES.get(name));
                         }
 
@@ -83,6 +43,8 @@ public class ModItemGroups
                         {
                             for(String name : BlockSetsHelper.EXTRA_WOODS_AN)
                             {
+                                entries.add(ModBlocks.TABLES.get(name));
+                                entries.add(ModBlocks.COFFEE_TABLES.get(name));
                                 entries.add(ModBlocks.GARDEN_TABLES.get(name));
                             }
                         }
@@ -91,6 +53,48 @@ public class ModItemGroups
                         {
                             for(String name : BlockSetsHelper.EXTRA_WOODS_WF)
                             {
+                                entries.add(ModBlocks.TABLES.get(name));
+                                entries.add(ModBlocks.COFFEE_TABLES.get(name));
+                                entries.add(ModBlocks.GARDEN_TABLES.get(name));
+                            }
+                        }
+
+                        if (FabricLoader.getInstance().isModLoaded("whisperleaftrees"))
+                        {
+                            for(String name : BlockSetsHelper.WT_WOOD_NAMES)
+                            {
+                                entries.add(ModBlocks.TABLES.get(name));
+                                entries.add(ModBlocks.COFFEE_TABLES.get(name));
+                                entries.add(ModBlocks.GARDEN_TABLES.get(name));
+                            }
+                        }
+
+                        if (FabricLoader.getInstance().isModLoaded("silverwoodtrees"))
+                        {
+                            for(String name : BlockSetsHelper.ST_WOOD_NAMES)
+                            {
+                                entries.add(ModBlocks.TABLES.get(name));
+                                entries.add(ModBlocks.COFFEE_TABLES.get(name));
+                                entries.add(ModBlocks.GARDEN_TABLES.get(name));
+                            }
+                        }
+
+                        if (FabricLoader.getInstance().isModLoaded("missingtrees"))
+                        {
+                            for(String name : BlockSetsHelper.MT_WOOD_NAMES)
+                            {
+                                entries.add(ModBlocks.TABLES.get(name));
+                                entries.add(ModBlocks.COFFEE_TABLES.get(name));
+                                entries.add(ModBlocks.GARDEN_TABLES.get(name));
+                            }
+                        }
+
+                        if (FabricLoader.getInstance().isModLoaded("natures_spirit"))
+                        {
+                            for(String name : BlockSetsHelper.NSS_WOOD_NAMES)
+                            {
+                                entries.add(ModBlocks.TABLES.get(name));
+                                entries.add(ModBlocks.COFFEE_TABLES.get(name));
                                 entries.add(ModBlocks.GARDEN_TABLES.get(name));
                             }
                         }
