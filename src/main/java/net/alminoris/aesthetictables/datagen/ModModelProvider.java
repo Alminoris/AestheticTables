@@ -13,6 +13,8 @@ import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 
+import java.util.Arrays;
+
 public class ModModelProvider extends FabricModelProvider
 {
     public ModModelProvider(FabricDataOutput output)
@@ -23,74 +25,46 @@ public class ModModelProvider extends FabricModelProvider
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator)
     {
-        for(String name : BlockSetsHelper.STONES)
+        for(String name : BlockSetsHelper.getWoods())
         {
+            if (Arrays.asList(BlockSetsHelper.WOODS).contains(name))
+            {
+                registerTable(blockStateModelGenerator,
+                        ModJsonTemplates.TABLE, ModJsonTemplates.TABLE_TOP,
+                        ModJsonTemplates.TABLE_LEG1, ModJsonTemplates.TABLE_LEG2, ModJsonTemplates.TABLE_LEG3,
+                        ModJsonTemplates.TABLE_LEG4,
+                        ModBlocks.TABLES.get(name), name, "minecraft");
 
-        }
+                registerCoffeeTable(blockStateModelGenerator,
+                        ModJsonTemplates.COFFEE_TABLE, ModJsonTemplates.COFFEE_TABLE_TOP,
+                        ModJsonTemplates.COFFEE_TABLE_LEG1, ModJsonTemplates.COFFEE_TABLE_LEG2, ModJsonTemplates.COFFEE_TABLE_LEG3,
+                        ModJsonTemplates.COFFEE_TABLE_LEG4,
+                        ModBlocks.COFFEE_TABLES.get(name), name, "minecraft");
 
-        for(String name : BlockSetsHelper.EXTRA_STONES_WF)
-        {
+                registerGardenTable(blockStateModelGenerator,
+                        ModJsonTemplates.GARDEN_TABLE, ModJsonTemplates.GARDEN_TABLE_CENTER,
+                        ModJsonTemplates.GARDEN_TABLE_LEFT, ModJsonTemplates.GARDEN_TABLE_RIGHT,
+                        ModBlocks.GARDEN_TABLES.get(name), name, "minecraft");
+            }
+            else
+            {
+                registerTable(blockStateModelGenerator,
+                        ModJsonTemplates.TABLE, ModJsonTemplates.TABLE_TOP,
+                        ModJsonTemplates.TABLE_LEG1, ModJsonTemplates.TABLE_LEG2, ModJsonTemplates.TABLE_LEG3,
+                        ModJsonTemplates.TABLE_LEG4,
+                        ModBlocks.TABLES.get(name), name, "aesthetictables");
 
-        }
+                registerCoffeeTable(blockStateModelGenerator,
+                        ModJsonTemplates.COFFEE_TABLE, ModJsonTemplates.COFFEE_TABLE_TOP,
+                        ModJsonTemplates.COFFEE_TABLE_LEG1, ModJsonTemplates.COFFEE_TABLE_LEG2, ModJsonTemplates.COFFEE_TABLE_LEG3,
+                        ModJsonTemplates.COFFEE_TABLE_LEG4,
+                        ModBlocks.COFFEE_TABLES.get(name), name, "aesthetictables");
 
-        for(String name : BlockSetsHelper.WOODS)
-        {
-            registerTable(blockStateModelGenerator,
-                    ModJsonTemplates.TABLE, ModJsonTemplates.TABLE_TOP,
-                    ModJsonTemplates.TABLE_LEG1, ModJsonTemplates.TABLE_LEG2, ModJsonTemplates.TABLE_LEG3,
-                    ModJsonTemplates.TABLE_LEG4,
-                    ModBlocks.TABLES.get(name), name, "minecraft");
-
-            registerCoffeeTable(blockStateModelGenerator,
-                    ModJsonTemplates.COFFEE_TABLE, ModJsonTemplates.COFFEE_TABLE_TOP,
-                    ModJsonTemplates.COFFEE_TABLE_LEG1, ModJsonTemplates.COFFEE_TABLE_LEG2, ModJsonTemplates.COFFEE_TABLE_LEG3,
-                    ModJsonTemplates.COFFEE_TABLE_LEG4,
-                    ModBlocks.COFFEE_TABLES.get(name), name, "minecraft");
-
-            registerGardenTable(blockStateModelGenerator,
-                    ModJsonTemplates.GARDEN_TABLE, ModJsonTemplates.GARDEN_TABLE_CENTER,
-                    ModJsonTemplates.GARDEN_TABLE_LEFT, ModJsonTemplates.GARDEN_TABLE_RIGHT,
-                    ModBlocks.GARDEN_TABLES.get(name), name, "minecraft");
-        }
-
-        for(String name : BlockSetsHelper.EXTRA_WOODS_AN)
-        {
-            registerTable(blockStateModelGenerator,
-                    ModJsonTemplates.TABLE, ModJsonTemplates.TABLE_TOP,
-                    ModJsonTemplates.TABLE_LEG1, ModJsonTemplates.TABLE_LEG2, ModJsonTemplates.TABLE_LEG3,
-                    ModJsonTemplates.TABLE_LEG4,
-                    ModBlocks.TABLES.get(name), name, "aesthetictables");
-
-            registerCoffeeTable(blockStateModelGenerator,
-                    ModJsonTemplates.COFFEE_TABLE, ModJsonTemplates.COFFEE_TABLE_TOP,
-                    ModJsonTemplates.COFFEE_TABLE_LEG1, ModJsonTemplates.COFFEE_TABLE_LEG2, ModJsonTemplates.COFFEE_TABLE_LEG3,
-                    ModJsonTemplates.COFFEE_TABLE_LEG4,
-                    ModBlocks.COFFEE_TABLES.get(name), name, "aesthetictables");
-
-            registerGardenTable(blockStateModelGenerator,
-                    ModJsonTemplates.GARDEN_TABLE, ModJsonTemplates.GARDEN_TABLE_CENTER,
-                    ModJsonTemplates.GARDEN_TABLE_LEFT, ModJsonTemplates.GARDEN_TABLE_RIGHT,
-                    ModBlocks.GARDEN_TABLES.get(name), name, "aesthetictables");
-        }
-
-        for(String name : BlockSetsHelper.EXTRA_WOODS_WF)
-        {
-            registerTable(blockStateModelGenerator,
-                    ModJsonTemplates.TABLE, ModJsonTemplates.TABLE_TOP,
-                    ModJsonTemplates.TABLE_LEG1, ModJsonTemplates.TABLE_LEG2, ModJsonTemplates.TABLE_LEG3,
-                    ModJsonTemplates.TABLE_LEG4,
-                    ModBlocks.TABLES.get(name), name, "aesthetictables");
-
-            registerCoffeeTable(blockStateModelGenerator,
-                    ModJsonTemplates.COFFEE_TABLE, ModJsonTemplates.COFFEE_TABLE_TOP,
-                    ModJsonTemplates.COFFEE_TABLE_LEG1, ModJsonTemplates.COFFEE_TABLE_LEG2, ModJsonTemplates.COFFEE_TABLE_LEG3,
-                    ModJsonTemplates.COFFEE_TABLE_LEG4,
-                    ModBlocks.COFFEE_TABLES.get(name), name, "aesthetictables");
-
-            registerGardenTable(blockStateModelGenerator,
-                    ModJsonTemplates.GARDEN_TABLE, ModJsonTemplates.GARDEN_TABLE_CENTER,
-                    ModJsonTemplates.GARDEN_TABLE_LEFT, ModJsonTemplates.GARDEN_TABLE_RIGHT,
-                    ModBlocks.GARDEN_TABLES.get(name), name, "aesthetictables");
+                registerGardenTable(blockStateModelGenerator,
+                        ModJsonTemplates.GARDEN_TABLE, ModJsonTemplates.GARDEN_TABLE_CENTER,
+                        ModJsonTemplates.GARDEN_TABLE_LEFT, ModJsonTemplates.GARDEN_TABLE_RIGHT,
+                        ModBlocks.GARDEN_TABLES.get(name), name, "aesthetictables");
+            }
         }
     }
 
