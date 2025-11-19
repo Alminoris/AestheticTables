@@ -37,6 +37,10 @@ public class ModItemGroups
                             entries.add(ModBlocks.TABLES.get(name));
                             entries.add(ModBlocks.COFFEE_TABLES.get(name));
                             entries.add(ModBlocks.GARDEN_TABLES.get(name));
+                            entries.add(ModBlocks.OCTAGONAL_TABLES.get(name));
+                            entries.add(ModBlocks.DINING_TABLES.get(name));
+                            entries.add(ModBlocks.DESK_TABLES.get(name));
+                            entries.add(ModBlocks.KITCHEN_TABLES.get(name));
                         }
 
                         if (FabricLoader.getInstance().isModLoaded("arborealnature"))
@@ -46,6 +50,10 @@ public class ModItemGroups
                                 entries.add(ModBlocks.TABLES.get(name));
                                 entries.add(ModBlocks.COFFEE_TABLES.get(name));
                                 entries.add(ModBlocks.GARDEN_TABLES.get(name));
+                                entries.add(ModBlocks.OCTAGONAL_TABLES.get(name));
+                                entries.add(ModBlocks.DINING_TABLES.get(name));
+                                entries.add(ModBlocks.DESK_TABLES.get(name));
+                                entries.add(ModBlocks.KITCHEN_TABLES.get(name));
                             }
                         }
 
@@ -56,6 +64,10 @@ public class ModItemGroups
                                 entries.add(ModBlocks.TABLES.get(name));
                                 entries.add(ModBlocks.COFFEE_TABLES.get(name));
                                 entries.add(ModBlocks.GARDEN_TABLES.get(name));
+                                entries.add(ModBlocks.OCTAGONAL_TABLES.get(name));
+                                entries.add(ModBlocks.DINING_TABLES.get(name));
+                                entries.add(ModBlocks.DESK_TABLES.get(name));
+                                entries.add(ModBlocks.KITCHEN_TABLES.get(name));
                             }
                         }
 
@@ -66,6 +78,10 @@ public class ModItemGroups
                                 entries.add(ModBlocks.TABLES.get(name));
                                 entries.add(ModBlocks.COFFEE_TABLES.get(name));
                                 entries.add(ModBlocks.GARDEN_TABLES.get(name));
+                                entries.add(ModBlocks.OCTAGONAL_TABLES.get(name));
+                                entries.add(ModBlocks.DINING_TABLES.get(name));
+                                entries.add(ModBlocks.DESK_TABLES.get(name));
+                                entries.add(ModBlocks.KITCHEN_TABLES.get(name));
                             }
                         }
 
@@ -76,6 +92,10 @@ public class ModItemGroups
                                 entries.add(ModBlocks.TABLES.get(name));
                                 entries.add(ModBlocks.COFFEE_TABLES.get(name));
                                 entries.add(ModBlocks.GARDEN_TABLES.get(name));
+                                entries.add(ModBlocks.OCTAGONAL_TABLES.get(name));
+                                entries.add(ModBlocks.DINING_TABLES.get(name));
+                                entries.add(ModBlocks.DESK_TABLES.get(name));
+                                entries.add(ModBlocks.KITCHEN_TABLES.get(name));
                             }
                         }
 
@@ -86,6 +106,10 @@ public class ModItemGroups
                                 entries.add(ModBlocks.TABLES.get(name));
                                 entries.add(ModBlocks.COFFEE_TABLES.get(name));
                                 entries.add(ModBlocks.GARDEN_TABLES.get(name));
+                                entries.add(ModBlocks.OCTAGONAL_TABLES.get(name));
+                                entries.add(ModBlocks.DINING_TABLES.get(name));
+                                entries.add(ModBlocks.DESK_TABLES.get(name));
+                                entries.add(ModBlocks.KITCHEN_TABLES.get(name));
                             }
                         }
 
@@ -96,6 +120,10 @@ public class ModItemGroups
                                 entries.add(ModBlocks.TABLES.get(name));
                                 entries.add(ModBlocks.COFFEE_TABLES.get(name));
                                 entries.add(ModBlocks.GARDEN_TABLES.get(name));
+                                entries.add(ModBlocks.OCTAGONAL_TABLES.get(name));
+                                entries.add(ModBlocks.DINING_TABLES.get(name));
+                                entries.add(ModBlocks.DESK_TABLES.get(name));
+                                entries.add(ModBlocks.KITCHEN_TABLES.get(name));
                             }
                         }
                     }).build());

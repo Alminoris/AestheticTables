@@ -25,8 +25,12 @@ public class ModLanguageProviderUkUa extends FabricLanguageProvider
 
         Map<String, String> woodObjects = new LinkedHashMap<>();
         woodObjects.put("table_", "Стіл з %s");
-        woodObjects.put("coffee_", "Кавовий столик з %s");
-        woodObjects.put("garden_", "Садовий стіл з %s");
+        woodObjects.put("coffee_table_", "Кавовий столик з %s");
+        woodObjects.put("garden_table_", "Садовий стіл з %s");
+        woodObjects.put("octagonal_table_", "Восьмикутний столик з %s");
+        woodObjects.put("dining_table_", "Обідній стіл з %s");
+        woodObjects.put("kitchen_table_", "Кухонний стіл з %s");
+        woodObjects.put("desk_table_", "Робочий стіл з %s");
 
         Map<String, String> stoneMaterials = new LinkedHashMap<>();
         stoneMaterials.put("stone", "каменю");

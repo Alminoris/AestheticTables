@@ -28,6 +28,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
             addDrop(ModBlocks.TABLES.get(name));
             addDrop(ModBlocks.COFFEE_TABLES.get(name));
             addDrop(ModBlocks.GARDEN_TABLES.get(name));
+            addDrop(ModBlocks.KITCHEN_TABLES.get(name));
+            addDrop(ModBlocks.OCTAGONAL_TABLES.get(name));
+            addDrop(ModBlocks.DINING_TABLES.get(name));
+            addDrop(ModBlocks.DESK_TABLES.get(name));
         }
     }
 }

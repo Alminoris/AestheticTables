@@ -45,6 +45,25 @@ public class ModModelProvider extends FabricModelProvider
                         ModJsonTemplates.GARDEN_TABLE, ModJsonTemplates.GARDEN_TABLE_CENTER,
                         ModJsonTemplates.GARDEN_TABLE_LEFT, ModJsonTemplates.GARDEN_TABLE_RIGHT,
                         ModBlocks.GARDEN_TABLES.get(name), name, "minecraft");
+
+                registerGardenTable(blockStateModelGenerator,
+                        ModJsonTemplates.DESK_TABLE, ModJsonTemplates.DESK_TABLE_CENTER,
+                        ModJsonTemplates.DESK_TABLE_LEFT, ModJsonTemplates.DESK_TABLE_RIGHT,
+                        ModBlocks.DESK_TABLES.get(name), name, "minecraft");
+
+                registerSimpleTable(blockStateModelGenerator, ModJsonTemplates.OCTAGONAL_TABLE, ModBlocks.OCTAGONAL_TABLES.get(name), name, "aesthetictables");
+
+                registerTable(blockStateModelGenerator,
+                        ModJsonTemplates.DINING_TABLE, ModJsonTemplates.DINING_TABLE_TOP,
+                        ModJsonTemplates.DINING_TABLE_LEG1, ModJsonTemplates.DINING_TABLE_LEG2, ModJsonTemplates.DINING_TABLE_LEG3,
+                        ModJsonTemplates.DINING_TABLE_LEG4,
+                        ModBlocks.DINING_TABLES.get(name), name, "minecraft");
+
+                registerTable(blockStateModelGenerator,
+                        ModJsonTemplates.KITCHEN_TABLE, ModJsonTemplates.KITCHEN_TABLE_TOP,
+                        ModJsonTemplates.KITCHEN_TABLE_LEG1, ModJsonTemplates.KITCHEN_TABLE_LEG2, ModJsonTemplates.KITCHEN_TABLE_LEG3,
+                        ModJsonTemplates.KITCHEN_TABLE_LEG4,
+                        ModBlocks.KITCHEN_TABLES.get(name), name, "minecraft");
             }
             else
             {
@@ -53,6 +72,18 @@ public class ModModelProvider extends FabricModelProvider
                         ModJsonTemplates.TABLE_LEG1, ModJsonTemplates.TABLE_LEG2, ModJsonTemplates.TABLE_LEG3,
                         ModJsonTemplates.TABLE_LEG4,
                         ModBlocks.TABLES.get(name), name, "aesthetictables");
+
+                registerTable(blockStateModelGenerator,
+                        ModJsonTemplates.DINING_TABLE, ModJsonTemplates.DINING_TABLE_TOP,
+                        ModJsonTemplates.DINING_TABLE_LEG1, ModJsonTemplates.DINING_TABLE_LEG2, ModJsonTemplates.DINING_TABLE_LEG3,
+                        ModJsonTemplates.DINING_TABLE_LEG4,
+                        ModBlocks.DINING_TABLES.get(name), name, "aesthetictables");
+
+                registerTable(blockStateModelGenerator,
+                        ModJsonTemplates.KITCHEN_TABLE, ModJsonTemplates.KITCHEN_TABLE_TOP,
+                        ModJsonTemplates.KITCHEN_TABLE_LEG1, ModJsonTemplates.KITCHEN_TABLE_LEG2, ModJsonTemplates.KITCHEN_TABLE_LEG3,
+                        ModJsonTemplates.KITCHEN_TABLE_LEG4,
+                        ModBlocks.KITCHEN_TABLES.get(name), name, "aesthetictables");
 
                 registerCoffeeTable(blockStateModelGenerator,
                         ModJsonTemplates.COFFEE_TABLE, ModJsonTemplates.COFFEE_TABLE_TOP,
@@ -64,6 +95,13 @@ public class ModModelProvider extends FabricModelProvider
                         ModJsonTemplates.GARDEN_TABLE, ModJsonTemplates.GARDEN_TABLE_CENTER,
                         ModJsonTemplates.GARDEN_TABLE_LEFT, ModJsonTemplates.GARDEN_TABLE_RIGHT,
                         ModBlocks.GARDEN_TABLES.get(name), name, "aesthetictables");
+
+                registerGardenTable(blockStateModelGenerator,
+                        ModJsonTemplates.DESK_TABLE, ModJsonTemplates.DESK_TABLE_CENTER,
+                        ModJsonTemplates.DESK_TABLE_LEFT, ModJsonTemplates.DESK_TABLE_RIGHT,
+                        ModBlocks.DESK_TABLES.get(name), name, "aesthetictables");
+
+                registerSimpleTable(blockStateModelGenerator, ModJsonTemplates.OCTAGONAL_TABLE, ModBlocks.OCTAGONAL_TABLES.get(name), name, "aesthetictables");
             }
         }
     }
@@ -105,7 +143,7 @@ public class ModModelProvider extends FabricModelProvider
                 modId+":block/"+name+"_planks",
                 "top");
 
-        ModJsonHelper.createBlockstate(ModJsonTemplates.TABLE_BLOCKSTATE_TEMPLATE, Registries.BLOCK.getId(table).getPath());
+        ModJsonHelper.createBlockstate(ModJsonTemplates.EXTRA_TABLE_BLOCKSTATE_TEMPLATE, Registries.BLOCK.getId(table).getPath());
         blockStateModelGenerator.registerParentedItemModel(table, Identifier.of(AestheticTables.MOD_ID, "block/"+Registries.BLOCK.getId(table).getPath()));
     }
 
@@ -147,6 +185,20 @@ public class ModModelProvider extends FabricModelProvider
                 "top");
 
         ModJsonHelper.createBlockstate(ModJsonTemplates.TABLE_BLOCKSTATE_TEMPLATE, Registries.BLOCK.getId(table).getPath());
+        blockStateModelGenerator.registerParentedItemModel(table, Identifier.of(AestheticTables.MOD_ID, "block/"+Registries.BLOCK.getId(table).getPath()));
+    }
+
+    public final void registerSimpleTable(BlockStateModelGenerator blockStateModelGenerator, String normal, Block table, String name, String modId)
+    {
+        String logName = (name.equals("crimson") || name.equals("warped")) ? "stem" : (name.equals("bamboo") ? "block" : "log");
+
+        ModJsonHelper.createSimpleTableBlockModel(normal, Registries.BLOCK.getId(table).getPath(),
+                modId+":block/"+name+"_"+logName,
+                modId+":block/glass",
+                modId+":block/stripped_"+name+"_"+logName);
+
+
+        ModJsonHelper.createBlockstate(ModJsonTemplates.SIMPLE_TABLE_BLOCKSTATE_TEMPLATE, Registries.BLOCK.getId(table).getPath());
         blockStateModelGenerator.registerParentedItemModel(table, Identifier.of(AestheticTables.MOD_ID, "block/"+Registries.BLOCK.getId(table).getPath()));
     }
 
