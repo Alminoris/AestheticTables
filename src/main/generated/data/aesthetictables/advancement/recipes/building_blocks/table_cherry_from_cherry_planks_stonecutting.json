@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:table_cherry_from_cherry_planks_stonecutting"
+        "recipe": "aesthetictables:table_cherry_from_cherry_planks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:table_cherry_from_cherry_planks_stonecutting"
+      "aesthetictables:table_cherry_from_cherry_planks_stonecutting"
     ]
   }
 }

@@ -18,7 +18,7 @@ public class ModItemGroups
     public static final ItemGroup AEDGS_TAB = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(AestheticTables.MOD_ID, "atblstab"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.atblstab"))
-                    .icon(() -> new ItemStack(Blocks.RED_CARPET)).entries((displayContext, entries) ->
+                    .icon(() -> new ItemStack(ModBlocks.TABLES.get("oak"))).entries((displayContext, entries) ->
                     {
                         for(String name : BlockSetsHelper.STONES)
                         {

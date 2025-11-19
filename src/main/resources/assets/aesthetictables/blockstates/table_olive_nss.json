@@ -1,0 +1,23 @@
+{
+  "multipart": [
+    {
+      "apply": { "model": "aesthetictables:block/table_olive_nss_top" }
+    },
+    {
+      "when": { "leg1": true },
+      "apply": { "model": "aesthetictables:block/table_olive_nss_leg1" }
+    },
+    {
+      "when": { "leg2": true },
+      "apply": { "model": "aesthetictables:block/table_olive_nss_leg2" }
+    },
+    {
+      "when": { "leg3": true },
+      "apply": { "model": "aesthetictables:block/table_olive_nss_leg3" }
+    },
+    {
+      "when": { "leg4": true },
+      "apply": { "model": "aesthetictables:block/table_olive_nss_leg4" }
+    }
+  ]
+}
