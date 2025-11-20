@@ -24,13 +24,13 @@ public class ModLanguageProviderDeDe extends FabricLanguageProvider
         Map<String, String> stoneObjects = new LinkedHashMap<>();
 
         Map<String, String> woodObjects = new LinkedHashMap<>();
-        woodObjects.put("shelf_", "Regal aus %s");
-        woodObjects.put("standing_shelf_", "Stehendes Regal aus %s");
-        woodObjects.put("ceiling_shelf_", "Deckenregal aus %s");
-        woodObjects.put("corner_shelf_", "Eckregal aus %s");
-        woodObjects.put("ladder_shelf_", "Leiterregal aus %s");
-        woodObjects.put("tower_shelf_", "Turmregal aus %s");
-
+        woodObjects.put("table_", "Tisch aus %s");
+        woodObjects.put("coffee_table_", "Kaffeetisch aus %s");
+        woodObjects.put("garden_table_", "Gartentisch aus %s");
+        woodObjects.put("octagonal_table_", "Achteckiger Tisch aus %s");
+        woodObjects.put("dining_table_", "Esstisch aus %s");
+        woodObjects.put("kitchen_table_", "Küchentisch aus %s");
+        woodObjects.put("desk_table_", "Schreibtisch aus %s");
 
         Map<String, String> stoneMaterials = new LinkedHashMap<>();
         stoneMaterials.put("stone", "Stein");

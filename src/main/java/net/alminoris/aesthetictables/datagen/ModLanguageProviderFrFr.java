@@ -24,13 +24,13 @@ public class ModLanguageProviderFrFr extends FabricLanguageProvider
         Map<String, String> stoneObjects = new LinkedHashMap<>();
 
         Map<String, String> woodObjects = new LinkedHashMap<>();
-        woodObjects.put("shelf_", "Étagère en %s");
-        woodObjects.put("standing_shelf_", "Étagère sur pied en %s");
-        woodObjects.put("ceiling_shelf_", "Étagère de plafond en %s");
-        woodObjects.put("corner_shelf_", "Étagère d’angle en %s");
-        woodObjects.put("ladder_shelf_", "Étagère-échelle en %s");
-        woodObjects.put("tower_shelf_", "Étagère-tour en %s");
-
+        woodObjects.put("table_", "Table en %s");
+        woodObjects.put("coffee_table_", "Table basse en %s");
+        woodObjects.put("garden_table_", "Table de jardin en %s");
+        woodObjects.put("octagonal_table_", "Table octogonale en %s");
+        woodObjects.put("dining_table_", "Table de salle à manger en %s");
+        woodObjects.put("kitchen_table_", "Table de cuisine en %s");
+        woodObjects.put("desk_table_", "Bureau en %s");
 
         Map<String, String> stoneMaterials = new LinkedHashMap<>();
         stoneMaterials.put("stone", "pierre");

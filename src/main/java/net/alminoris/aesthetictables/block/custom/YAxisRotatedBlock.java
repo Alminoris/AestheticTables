@@ -1,6 +1,7 @@
 package net.alminoris.aesthetictables.block.custom;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Waterloggable;
 import net.minecraft.fluid.FluidState;
@@ -22,7 +23,7 @@ public class YAxisRotatedBlock extends Block implements Waterloggable
 
     public YAxisRotatedBlock(Settings settings)
     {
-        super(settings);
+        super(settings.nonOpaque());
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
 
@@ -50,6 +51,10 @@ public class YAxisRotatedBlock extends Block implements Waterloggable
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
+    @Override
+    protected BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
+    }
 
     @Override
     public FluidState getFluidState(BlockState state)

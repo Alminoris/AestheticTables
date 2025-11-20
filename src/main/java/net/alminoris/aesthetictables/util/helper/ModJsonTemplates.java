@@ -40,26 +40,42 @@ public class ModJsonTemplates
             {
               "multipart": [
                 {
-                  "when": {},
-                  "apply": { "model": "aesthetictables:block/NAME" }
-                },
-                {
                   "apply": { "model": "aesthetictables:block/NAME_top" }
                 },
                 {
-                  "when": { "leg1": true },
+                  "when": { "single": true },
+                  "apply": { "model": "aesthetictables:block/NAME" }
+                },
+                {
+                  "when": { "leg1": true, "single": false },
                   "apply": { "model": "aesthetictables:block/NAME_leg1" }
                 },
                 {
-                  "when": { "leg2": true },
+                  "when": { "leg2": true, "single": false },
                   "apply": { "model": "aesthetictables:block/NAME_leg2" }
                 },
                 {
-                  "when": { "leg3": true },
+                  "when": { "leg3": true, "single": false },
                   "apply": { "model": "aesthetictables:block/NAME_leg3" }
                 },
                 {
-                  "when": { "leg4": true },
+                  "when": { "leg4": true, "single": false },
+                  "apply": { "model": "aesthetictables:block/NAME_leg4" }
+                },
+                {
+                  "when": { "leg1": true, "single": true },
+                  "apply": { "model": "aesthetictables:block/NAME_leg1" }
+                },
+                {
+                  "when": { "leg2": true, "single": true },
+                  "apply": { "model": "aesthetictables:block/NAME_leg2" }
+                },
+                {
+                  "when": { "leg3": true, "single": true },
+                  "apply": { "model": "aesthetictables:block/NAME_leg3" }
+                },
+                {
+                  "when": { "leg4": true, "single": true },
                   "apply": { "model": "aesthetictables:block/NAME_leg4" }
                 }
               ]
@@ -1311,7 +1327,7 @@ public class ModJsonTemplates
             }
             """;
 
-    public static String DINING_TABLE_LEG1 = """
+    public static String DINING_TABLE_LEG2 = """
             {
             	"format_version": "1.9.0",
             	"credit": "Made with Blockbench",
@@ -1413,7 +1429,7 @@ public class ModJsonTemplates
             }
             """;
 
-    public static String DINING_TABLE_LEG2 = """
+    public static String DINING_TABLE_LEG1 = """
             {
             	"format_version": "1.9.0",
             	"credit": "Made with Blockbench",
@@ -1515,7 +1531,7 @@ public class ModJsonTemplates
             }
             """;
 
-    public static String DINING_TABLE_LEG3 = """
+    public static String DINING_TABLE_LEG4 = """
             {
             	"format_version": "1.9.0",
             	"credit": "Made with Blockbench",
@@ -1617,7 +1633,7 @@ public class ModJsonTemplates
             }
             """;
 
-    public static String DINING_TABLE_LEG4 = """
+    public static String DINING_TABLE_LEG3 = """
             {
             	"format_version": "1.9.0",
             	"credit": "Made with Blockbench",
@@ -2462,7 +2478,7 @@ public class ModJsonTemplates
             }
             """;
 
-    public static String KITCHEN_TABLE_LEG1 = """
+    public static String KITCHEN_TABLE_LEG2 = """
             {
             	"format_version": "1.9.0",
             	"credit": "Made with Blockbench",
@@ -2577,7 +2593,7 @@ public class ModJsonTemplates
             }
             """;
 
-    public static String KITCHEN_TABLE_LEG2 = """
+    public static String KITCHEN_TABLE_LEG1 = """
             {
             	"format_version": "1.9.0",
             	"credit": "Made with Blockbench",
@@ -2692,7 +2708,7 @@ public class ModJsonTemplates
             }
             """;
 
-    public static String KITCHEN_TABLE_LEG3 = """
+    public static String KITCHEN_TABLE_LEG4 = """
             {
             	"format_version": "1.9.0",
             	"credit": "Made with Blockbench",
@@ -2807,7 +2823,7 @@ public class ModJsonTemplates
             }
             """;
 
-    public static String KITCHEN_TABLE_LEG4 = """
+    public static String KITCHEN_TABLE_LEG3 = """
             {
             	"format_version": "1.9.0",
             	"credit": "Made with Blockbench",

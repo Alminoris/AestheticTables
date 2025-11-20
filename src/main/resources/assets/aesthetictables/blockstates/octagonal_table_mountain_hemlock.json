@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "aesthetictables:block/octagonal_table_mountain_hemlock" },
+    "facing=south": { "model": "aesthetictables:block/octagonal_table_mountain_hemlock", "y": 180 },
+    "facing=west": { "model": "aesthetictables:block/octagonal_table_mountain_hemlock", "y": 270 },
+    "facing=east": { "model": "aesthetictables:block/octagonal_table_mountain_hemlock", "y": 90 }
+  }
+}

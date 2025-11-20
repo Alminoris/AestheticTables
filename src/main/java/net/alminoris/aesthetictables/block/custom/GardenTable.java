@@ -112,7 +112,7 @@ public class GardenTable extends YAxisRotatedBlock
     }
 
     @Override
-    protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos)
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos)
     {
         if (state.get(WATERLOGGED))
         {
@@ -141,7 +141,7 @@ public class GardenTable extends YAxisRotatedBlock
             BlockPos neighborPos = pos.offset(direction);
             BlockState neighborState = world.getBlockState(neighborPos);
 
-            if (neighborState.getBlock() instanceof GardenTable)
+            if (neighborState.getBlock() == this)
                 world.setBlockState(neighborPos, updateGardenTableVariant(neighborState, world, neighborPos));
         }
     }
@@ -169,6 +169,6 @@ public class GardenTable extends YAxisRotatedBlock
     private boolean isGardenTable(WorldAccess world, BlockPos pos, Direction facing)
     {
         BlockState state = world.getBlockState(pos);
-        return state.getBlock() instanceof GardenTable && state.get(FACING) == facing;
+        return state.getBlock() == this && state.get(FACING) == facing;
     }
 }
