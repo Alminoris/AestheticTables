@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "minecraft:crimson_planks"
   },
-  "result": "aesthetictables:coffee_table_crimson"
+  "result": "aesthetictables:coffee_table_crimson",
+  "count": 1
 }

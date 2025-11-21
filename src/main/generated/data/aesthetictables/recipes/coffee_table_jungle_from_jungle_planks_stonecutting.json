@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "minecraft:jungle_planks"
   },
-  "result": "aesthetictables:coffee_table_jungle"
+  "result": "aesthetictables:coffee_table_jungle",
+  "count": 1
 }

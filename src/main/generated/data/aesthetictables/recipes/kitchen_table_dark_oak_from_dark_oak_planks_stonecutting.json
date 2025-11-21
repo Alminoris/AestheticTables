@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:dark_oak_planks"
+  },
+  "result": "aesthetictables:kitchen_table_dark_oak",
+  "count": 1
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:crimson_planks"
+  },
+  "result": "aesthetictables:octagonal_table_crimson",
+  "count": 1
+}

@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "minecraft:birch_planks"
   },
-  "result": "aesthetictables:coffee_table_birch"
+  "result": "aesthetictables:coffee_table_birch",
+  "count": 1
 }
