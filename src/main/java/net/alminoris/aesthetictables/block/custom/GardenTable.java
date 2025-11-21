@@ -21,7 +21,7 @@ import net.minecraft.world.WorldAccess;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GardenTable extends YAxisRotatedBlock implements Waterloggable
+public class GardenTable extends YAxisRotatedBlock
 {
     protected static final VoxelShape TABLE_TOP = Block.createCuboidShape(
             0.0D, 14.0D, 0.0D,
@@ -56,9 +56,9 @@ public class GardenTable extends YAxisRotatedBlock implements Waterloggable
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
-    public static final EnumProperty<Variant> VARIANT = EnumProperty.of("variant", GardenTable.Variant.class);
+    public static final EnumProperty<Variant> VARIANT = EnumProperty.of("variant", Variant.class);
 
-    public GardenTable(AbstractBlock.Settings settings)
+    public GardenTable(Settings settings)
     {
         super(settings.nonOpaque());
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(VARIANT, Variant.NORMAL).with(WATERLOGGED, false));
@@ -123,8 +123,7 @@ public class GardenTable extends YAxisRotatedBlock implements Waterloggable
     }
 
     @Override
-    public FluidState getFluidState(BlockState state)
-    {
+    public FluidState getFluidState(BlockState state) {
         return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
     }
 
@@ -142,7 +141,7 @@ public class GardenTable extends YAxisRotatedBlock implements Waterloggable
             BlockPos neighborPos = pos.offset(direction);
             BlockState neighborState = world.getBlockState(neighborPos);
 
-            if (neighborState.getBlock() instanceof GardenTable)
+            if (neighborState.getBlock() == this)
                 world.setBlockState(neighborPos, updateGardenTableVariant(neighborState, world, neighborPos));
         }
     }
@@ -170,6 +169,6 @@ public class GardenTable extends YAxisRotatedBlock implements Waterloggable
     private boolean isGardenTable(WorldAccess world, BlockPos pos, Direction facing)
     {
         BlockState state = world.getBlockState(pos);
-        return state.getBlock() instanceof GardenTable && state.get(FACING) == facing;
+        return state.getBlock() == this && state.get(FACING) == facing;
     }
 }
