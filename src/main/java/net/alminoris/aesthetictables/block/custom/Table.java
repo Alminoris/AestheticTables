@@ -98,7 +98,7 @@ public class Table extends Block implements Waterloggable
     private boolean connectsTo(WorldAccess world, BlockPos pos)
     {
         BlockState neighbor = world.getBlockState(pos);
-        return neighbor.getBlock() instanceof Table;
+        return neighbor.getBlock() == this;
     }
 
     @Override
