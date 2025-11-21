@@ -53,7 +53,7 @@ public class ModBlocks
     {{
         for(String name : BlockSetsHelper.getWoods())
         {
-            put(name, registerBlock("octagonal_table_"+name, new YAxisRotatedBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS))));
+            put(name, registerBlock("octagonal_table_"+name, new SingleTable(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS))));
         }
     }};
 
