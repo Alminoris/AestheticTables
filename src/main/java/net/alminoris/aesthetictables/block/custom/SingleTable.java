@@ -10,8 +10,8 @@ import net.minecraft.world.BlockView;
 
 public class SingleTable extends YAxisRotatedBlock
 {
-    protected static final VoxelShape BASE = Block.createCuboidShape(4.5D, 14.0D, 0.0D, 11.5D, 16.0D, 16.0D);
-    protected static final VoxelShape BASE1 = Block.createCuboidShape(0.0D, 14.0D, 4.5D, 16.0D, 16.0D, 11.5D);
+    protected static final VoxelShape BASE = Block.createCuboidShape(4.25D, 14.0D, 0.0D, 11.75D, 16.0D, 16.0D);
+    protected static final VoxelShape BASE1 = Block.createCuboidShape(0.0D, 14.0D, 4.25D, 16.0D, 16.0D, 11.75D);
     protected static final VoxelShape LEG = Block.createCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 14.0D, 10.0D);
 
     public SingleTable(Settings settings)
