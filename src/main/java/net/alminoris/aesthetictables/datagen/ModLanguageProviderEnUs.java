@@ -48,7 +48,7 @@ public class ModLanguageProviderEnUs extends FabricLanguageProvider
                     translationBuilder.add("block." + AestheticTables.MOD_ID + "." + path, displayName);
                 });
 
-        translationBuilder.add("itemgroup.atblstab", "Aesthetic Tables");
+        translationBuilder.add("itemGroup.aesthetictables.atblstab", "Aesthetic Tables");
     }
 
     public static String movePrefix(String input, String[] arr)

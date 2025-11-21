@@ -132,6 +132,6 @@ public class ModLanguageProviderFrFr extends FabricLanguageProvider
             }
         }
 
-        translationBuilder.add("itemgroup.atblstab", "Aesthetic Tables");
+        translationBuilder.add("itemGroup.aesthetictables.atblstab", "Aesthetic Tables");
     }
 }
