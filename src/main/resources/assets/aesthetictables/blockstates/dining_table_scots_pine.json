@@ -1,0 +1,43 @@
+{
+  "multipart": [
+    {
+      "apply": { "model": "aesthetictables:block/dining_table_scots_pine_top" }
+    },
+    {
+      "when": { "single": true },
+      "apply": { "model": "aesthetictables:block/dining_table_scots_pine" }
+    },
+    {
+      "when": { "leg1": true, "single": false },
+      "apply": { "model": "aesthetictables:block/dining_table_scots_pine_leg1" }
+    },
+    {
+      "when": { "leg2": true, "single": false },
+      "apply": { "model": "aesthetictables:block/dining_table_scots_pine_leg2" }
+    },
+    {
+      "when": { "leg3": true, "single": false },
+      "apply": { "model": "aesthetictables:block/dining_table_scots_pine_leg3" }
+    },
+    {
+      "when": { "leg4": true, "single": false },
+      "apply": { "model": "aesthetictables:block/dining_table_scots_pine_leg4" }
+    },
+    {
+      "when": { "leg1": true, "single": true },
+      "apply": { "model": "aesthetictables:block/dining_table_scots_pine_leg1" }
+    },
+    {
+      "when": { "leg2": true, "single": true },
+      "apply": { "model": "aesthetictables:block/dining_table_scots_pine_leg2" }
+    },
+    {
+      "when": { "leg3": true, "single": true },
+      "apply": { "model": "aesthetictables:block/dining_table_scots_pine_leg3" }
+    },
+    {
+      "when": { "leg4": true, "single": true },
+      "apply": { "model": "aesthetictables:block/dining_table_scots_pine_leg4" }
+    }
+  ]
+}

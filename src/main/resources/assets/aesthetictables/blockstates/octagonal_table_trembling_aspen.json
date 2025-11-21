@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "aesthetictables:block/octagonal_table_trembling_aspen" },
+    "facing=south": { "model": "aesthetictables:block/octagonal_table_trembling_aspen", "y": 180 },
+    "facing=west": { "model": "aesthetictables:block/octagonal_table_trembling_aspen", "y": 270 },
+    "facing=east": { "model": "aesthetictables:block/octagonal_table_trembling_aspen", "y": 90 }
+  }
+}

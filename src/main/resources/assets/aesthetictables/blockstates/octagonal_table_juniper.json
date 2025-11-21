@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "aesthetictables:block/octagonal_table_juniper" },
+    "facing=south": { "model": "aesthetictables:block/octagonal_table_juniper", "y": 180 },
+    "facing=west": { "model": "aesthetictables:block/octagonal_table_juniper", "y": 270 },
+    "facing=east": { "model": "aesthetictables:block/octagonal_table_juniper", "y": 90 }
+  }
+}
