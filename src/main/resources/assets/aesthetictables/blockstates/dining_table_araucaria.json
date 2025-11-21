@@ -1,0 +1,43 @@
+{
+  "multipart": [
+    {
+      "apply": { "model": "aesthetictables:block/dining_table_araucaria_top" }
+    },
+    {
+      "when": { "single": true },
+      "apply": { "model": "aesthetictables:block/dining_table_araucaria" }
+    },
+    {
+      "when": { "leg1": true, "single": false },
+      "apply": { "model": "aesthetictables:block/dining_table_araucaria_leg1" }
+    },
+    {
+      "when": { "leg2": true, "single": false },
+      "apply": { "model": "aesthetictables:block/dining_table_araucaria_leg2" }
+    },
+    {
+      "when": { "leg3": true, "single": false },
+      "apply": { "model": "aesthetictables:block/dining_table_araucaria_leg3" }
+    },
+    {
+      "when": { "leg4": true, "single": false },
+      "apply": { "model": "aesthetictables:block/dining_table_araucaria_leg4" }
+    },
+    {
+      "when": { "leg1": true, "single": true },
+      "apply": { "model": "aesthetictables:block/dining_table_araucaria_leg1" }
+    },
+    {
+      "when": { "leg2": true, "single": true },
+      "apply": { "model": "aesthetictables:block/dining_table_araucaria_leg2" }
+    },
+    {
+      "when": { "leg3": true, "single": true },
+      "apply": { "model": "aesthetictables:block/dining_table_araucaria_leg3" }
+    },
+    {
+      "when": { "leg4": true, "single": true },
+      "apply": { "model": "aesthetictables:block/dining_table_araucaria_leg4" }
+    }
+  ]
+}

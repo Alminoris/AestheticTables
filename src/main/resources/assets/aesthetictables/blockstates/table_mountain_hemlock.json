@@ -1,0 +1,23 @@
+{
+  "multipart": [
+    {
+      "apply": { "model": "aesthetictables:block/table_mountain_hemlock_top" }
+    },
+    {
+      "when": { "leg1": true },
+      "apply": { "model": "aesthetictables:block/table_mountain_hemlock_leg1" }
+    },
+    {
+      "when": { "leg2": true },
+      "apply": { "model": "aesthetictables:block/table_mountain_hemlock_leg2" }
+    },
+    {
+      "when": { "leg3": true },
+      "apply": { "model": "aesthetictables:block/table_mountain_hemlock_leg3" }
+    },
+    {
+      "when": { "leg4": true },
+      "apply": { "model": "aesthetictables:block/table_mountain_hemlock_leg4" }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "aesthetictables:block/octagonal_table_mangrove" },
+    "facing=south": { "model": "aesthetictables:block/octagonal_table_mangrove", "y": 180 },
+    "facing=west": { "model": "aesthetictables:block/octagonal_table_mangrove", "y": 270 },
+    "facing=east": { "model": "aesthetictables:block/octagonal_table_mangrove", "y": 90 }
+  }
+}

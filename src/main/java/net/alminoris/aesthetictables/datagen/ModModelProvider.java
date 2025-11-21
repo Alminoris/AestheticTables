@@ -54,7 +54,7 @@ public class ModModelProvider extends FabricModelProvider
                 registerSimpleTable(blockStateModelGenerator, ModJsonTemplates.OCTAGONAL_TABLE, ModBlocks.OCTAGONAL_TABLES.get(name), name, "minecraft");
 
                 registerExtraTable(blockStateModelGenerator,
-                        ModJsonTemplates.DINING_TABLE, ModJsonTemplates.DINING_TABLE_TOP,
+                        ModJsonTemplates.DINING_TABLE_FULL, ModJsonTemplates.DINING_TABLE, ModJsonTemplates.DINING_TABLE_TOP,
                         ModJsonTemplates.DINING_TABLE_LEG1, ModJsonTemplates.DINING_TABLE_LEG2, ModJsonTemplates.DINING_TABLE_LEG3,
                         ModJsonTemplates.DINING_TABLE_LEG4,
                         ModBlocks.DINING_TABLES.get(name), name, "minecraft");
@@ -74,7 +74,7 @@ public class ModModelProvider extends FabricModelProvider
                         ModBlocks.TABLES.get(name), name, "aesthetictables");
 
                 registerExtraTable(blockStateModelGenerator,
-                        ModJsonTemplates.DINING_TABLE, ModJsonTemplates.DINING_TABLE_TOP,
+                        ModJsonTemplates.DINING_TABLE_FULL, ModJsonTemplates.DINING_TABLE, ModJsonTemplates.DINING_TABLE_TOP,
                         ModJsonTemplates.DINING_TABLE_LEG1, ModJsonTemplates.DINING_TABLE_LEG2, ModJsonTemplates.DINING_TABLE_LEG3,
                         ModJsonTemplates.DINING_TABLE_LEG4,
                         ModBlocks.DINING_TABLES.get(name), name, "aesthetictables");
@@ -147,12 +147,17 @@ public class ModModelProvider extends FabricModelProvider
         blockStateModelGenerator.registerParentedItemModel(table, Identifier.of(AestheticTables.MOD_ID, "block/"+Registries.BLOCK.getId(table).getPath()));
     }
 
-    public final void registerExtraTable(BlockStateModelGenerator blockStateModelGenerator, String normal,
+    public final void registerExtraTable(BlockStateModelGenerator blockStateModelGenerator, String full, String normal,
                                     String top, String leg1, String leg2, String leg3, String leg4,
                                     Block table, String name, String modId)
     {
         String logName = (name.equals("crimson") || name.equals("warped")) ? "stem" : (name.equals("bamboo") ? "block" : "log");
 
+        ModJsonHelper.createTableBlockModel(full, Registries.BLOCK.getId(table).getPath(),
+                modId+":block/"+name+"_"+logName,
+                modId+":block/"+name+"_planks",
+                modId+":block/"+name+"_planks",
+                "full");
         ModJsonHelper.createTableBlockModel(normal, Registries.BLOCK.getId(table).getPath(),
                 modId+":block/"+name+"_"+logName,
                 modId+":block/"+name+"_planks",
@@ -185,7 +190,7 @@ public class ModModelProvider extends FabricModelProvider
                 "top");
 
         ModJsonHelper.createBlockstate(ModJsonTemplates.EXTRA_TABLE_BLOCKSTATE_TEMPLATE, Registries.BLOCK.getId(table).getPath());
-        blockStateModelGenerator.registerParentedItemModel(table, Identifier.of(AestheticTables.MOD_ID, "block/"+Registries.BLOCK.getId(table).getPath()));
+        blockStateModelGenerator.registerParentedItemModel(table, Identifier.of(AestheticTables.MOD_ID, "block/"+Registries.BLOCK.getId(table).getPath()+"_full"));
     }
 
     public final void registerCoffeeTable(BlockStateModelGenerator blockStateModelGenerator, String normal,
