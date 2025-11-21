@@ -118,7 +118,7 @@ public class CoffeeTable extends Block implements Waterloggable
     private boolean connectsTo(WorldAccess world, BlockPos pos)
     {
         BlockState neighbor = world.getBlockState(pos);
-        return neighbor.getBlock() instanceof CoffeeTable;
+        return neighbor.getBlock() == this;
     }
 
     @Override

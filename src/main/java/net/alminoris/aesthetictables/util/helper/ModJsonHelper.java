@@ -33,6 +33,31 @@ public class ModJsonHelper
         }
     }
 
+    public static void createSimpleTableBlockModel(String jsonContent, String name, String textureLeg, String textureTop, String textureBot)
+    {
+        String projectPath = System.getProperty("user.dir");
+
+        String filePath = projectPath.replace("build\\datagen", "src\\main\\resources") + "/assets/"+ AestheticTables.MOD_ID+"/models/block/";
+
+        File directory = new File(filePath);
+        if (!directory.exists())
+            directory.mkdirs();
+
+        String fileName = name + ".json";
+        File modelFile = new File(directory, fileName);
+
+        jsonContent = jsonContent.replace("LEG_NAME", textureLeg).replace("TOP_NAME", textureTop).replace("BOTTOM_NAME", textureBot);
+
+        try (FileWriter writer = new FileWriter(modelFile))
+        {
+            writer.write(jsonContent);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
     public static void createStonecuttingRecipe(String ingredientName, String outputName, String count)
     {
         String projectPath = System.getProperty("user.dir");

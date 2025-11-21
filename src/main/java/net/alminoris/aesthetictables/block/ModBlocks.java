@@ -1,9 +1,7 @@
 package net.alminoris.aesthetictables.block;
 
 import net.alminoris.aesthetictables.AestheticTables;
-import net.alminoris.aesthetictables.block.custom.CoffeeTable;
-import net.alminoris.aesthetictables.block.custom.GardenTable;
-import net.alminoris.aesthetictables.block.custom.Table;
+import net.alminoris.aesthetictables.block.custom.*;
 import net.alminoris.aesthetictables.util.helper.BlockSetsHelper;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -27,6 +25,22 @@ public class ModBlocks
         }
     }};
 
+    public static final Dictionary<String, Block> DINING_TABLES = new Hashtable<>()
+    {{
+        for(String name : BlockSetsHelper.getWoods())
+        {
+            put(name, registerBlock("dining_table_"+name, new ExtraTable(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS))));
+        }
+    }};
+
+    public static final Dictionary<String, Block> KITCHEN_TABLES = new Hashtable<>()
+    {{
+        for(String name : BlockSetsHelper.getWoods())
+        {
+            put(name, registerBlock("kitchen_table_"+name, new Table(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS))));
+        }
+    }};
+
     public static final Dictionary<String, Block> COFFEE_TABLES = new Hashtable<>()
     {{
         for(String name : BlockSetsHelper.getWoods())
@@ -35,11 +49,27 @@ public class ModBlocks
         }
     }};
 
+    public static final Dictionary<String, Block> OCTAGONAL_TABLES = new Hashtable<>()
+    {{
+        for(String name : BlockSetsHelper.getWoods())
+        {
+            put(name, registerBlock("octagonal_table_"+name, new SingleTable(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS))));
+        }
+    }};
+
     public static final Dictionary<String, Block> GARDEN_TABLES = new Hashtable<>()
     {{
         for(String name : BlockSetsHelper.getWoods())
         {
             put(name, registerBlock("garden_table_"+name, new GardenTable(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS))));
+        }
+    }};
+
+    public static final Dictionary<String, Block> DESK_TABLES = new Hashtable<>()
+    {{
+        for(String name : BlockSetsHelper.getWoods())
+        {
+            put(name, registerBlock("desk_table_"+name, new GardenTable(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS))));
         }
     }};
 
