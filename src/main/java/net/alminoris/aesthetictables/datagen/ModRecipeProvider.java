@@ -23,26 +23,17 @@ public class ModRecipeProvider extends FabricRecipeProvider
     @Override
     public void generate(Consumer<RecipeJsonProvider> recipeExporter)
     {
-        for(String name : BlockSetsHelper.STONES)
-        {
-            Block block = Registries.BLOCK.get(Identifier.of("minecraft", name.equals("basalt_side") ? "basalt" :
-                    (name.equals("quartz_block_bottom") ? "quartz_block" : name)));
-
-
-        }
-
-        for(String name : BlockSetsHelper.EXTRA_STONES_WF)
-        {
-
-        }
-
         for(String name : BlockSetsHelper.WOODS)
         {
-            Block block = Registries.BLOCK.get(Identifier.of("minecraft", name+"_planks"));
+            Block block = Registries.BLOCK.get(Identifier.of("minecraft",name+"_planks"));
 
             offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.TABLES.get(name), block, 1);
-            offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COFFEE_TABLES .get(name), block, 1);
-            offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GARDEN_TABLES .get(name), block, 1);
+            offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COFFEE_TABLES.get(name), block, 1);
+            offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GARDEN_TABLES.get(name), block, 1);
+            offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.OCTAGONAL_TABLES.get(name), block, 1);
+            offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.DINING_TABLES.get(name), block, 1);
+            offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.DESK_TABLES.get(name), block, 1);
+            offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.KITCHEN_TABLES.get(name), block, 1);
         }
 
         for(String name : BlockSetsHelper.EXTRA_WOODS_AN)
@@ -53,6 +44,14 @@ public class ModRecipeProvider extends FabricRecipeProvider
                     Registries.BLOCK.getId(ModBlocks.COFFEE_TABLES.get(name)).getPath(), "1");
             ModJsonHelper.createStonecuttingRecipe("arborealnature:"+name+"_planks",
                     Registries.BLOCK.getId(ModBlocks.GARDEN_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("arborealnature:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.OCTAGONAL_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("arborealnature:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.DINING_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("arborealnature:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.DESK_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("arborealnature:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.KITCHEN_TABLES.get(name)).getPath(), "1");
         }
 
         for(String name : BlockSetsHelper.EXTRA_WOODS_WF)
@@ -63,6 +62,86 @@ public class ModRecipeProvider extends FabricRecipeProvider
                     Registries.BLOCK.getId(ModBlocks.COFFEE_TABLES.get(name)).getPath(), "1");
             ModJsonHelper.createStonecuttingRecipe("wildfields:"+name+"_planks",
                     Registries.BLOCK.getId(ModBlocks.GARDEN_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("wildfields:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.OCTAGONAL_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("wildfields:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.DINING_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("wildfields:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.DESK_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("wildfields:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.KITCHEN_TABLES.get(name)).getPath(), "1");
+        }
+
+        for(String name : BlockSetsHelper.WT_WOOD_NAMES)
+        {
+            ModJsonHelper.createStonecuttingRecipe("whisperleaftrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("whisperleaftrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.COFFEE_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("whisperleaftrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.GARDEN_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("whisperleaftrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.OCTAGONAL_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("whisperleaftrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.DINING_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("whisperleaftrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.DESK_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("whisperleaftrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.KITCHEN_TABLES.get(name)).getPath(), "1");
+        }
+
+        for(String name : BlockSetsHelper.ST_WOOD_NAMES)
+        {
+            ModJsonHelper.createStonecuttingRecipe("silverwoodtrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("silverwoodtrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.COFFEE_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("silverwoodtrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.GARDEN_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("silverwoodtrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.OCTAGONAL_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("silverwoodtrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.DINING_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("silverwoodtrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.DESK_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("silverwoodtrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.KITCHEN_TABLES.get(name)).getPath(), "1");
+        }
+
+        for(String name : BlockSetsHelper.MT_WOOD_NAMES)
+        {
+            ModJsonHelper.createStonecuttingRecipe("missingtrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("missingtrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.COFFEE_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("missingtrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.GARDEN_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("missingtrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.OCTAGONAL_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("missingtrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.DINING_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("missingtrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.DESK_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("missingtrees:"+name+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.KITCHEN_TABLES.get(name)).getPath(), "1");
+        }
+
+        for(String name : BlockSetsHelper.NSS_WOOD_NAMES)
+        {
+            ModJsonHelper.createStonecuttingRecipe("natures_spirit:"+name.replace("_nss", "")+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("natures_spirit:"+name.replace("_nss", "")+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.COFFEE_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("natures_spirit:"+name.replace("_nss", "")+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.GARDEN_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("natures_spirit:"+name.replace("_nss", "")+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.OCTAGONAL_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("natures_spirit:"+name.replace("_nss", "")+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.DINING_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("natures_spirit:"+name.replace("_nss", "")+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.DESK_TABLES.get(name)).getPath(), "1");
+            ModJsonHelper.createStonecuttingRecipe("natures_spirit:"+name.replace("_nss", "")+"_planks",
+                    Registries.BLOCK.getId(ModBlocks.KITCHEN_TABLES.get(name)).getPath(), "1");
         }
     }
 }
